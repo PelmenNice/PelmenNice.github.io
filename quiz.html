@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Викторина</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+	<style>
+		div#quiz-container {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			align-items: center;
+			justify-content: center;
+			margin-top: 40px;
+		}
+		div.quiz-buttons {
+			display: flex;
+			flex-direction: row;
+			gap: 40px;
+			justify-content: center;
+		}
+		div#score-container {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			justify-content: center;
+			align-items: center;
+			margin-top: 40px;
+		}
+		#quiz-container>img {
+			min-height: 500px;
+			max-height: 800px;
+		}
+		#score-container>img{
+			min-height: 500px;
+			max-height: 800px;
+		}
+	</style>
+	<div id="quiz-container" class="container">
+		<h2>Является ли этот сайт фишинговым?</h2>
+		<img src="" alt="" id="quiz-image">
+		<div class="quiz-buttons">
+			<button id="button-yes" onclick="checkAnswer(true)">Да</button>
+			<button id="button-no" onclick="checkAnswer(false)">Нет</button>
+		</div>
+	</div>
+	<div id="score-container" class="container" hidden>
+		<div><strong>Оценка:</strong> <span id="score"></span> / <span id="total-questions"></span></div>
+		<div><a href="/" role="button">На главную страницу</a></div>
+		<img src="/fail1.jpg" alt="" id="fail-image1" hidden>
+		<span id="fail-span1" hidden>URL сайта выглядит подозрительно, и не похоже на адрес официального сайта.</span>
+		<img src="/fail2.jpg" alt="" id="fail-image2" hidden>
+		<span id="fail-span2" hidden>URL сайта выглядит подозрительно, и не похоже на адрес официального сайта. Также, соединение незащищено, что обычно недопустимо для платежных систем.</span>
+		<img src="/fail3.jpg" alt="" id="fail-image3" hidden>
+		<span id="fail-span3" hidden>Любое внезапное сообщение о выигрыше денег является подозрительным, в сообщении чувствуется срочность (пользователя подталкивают поскорее получить выигрыш).</span>
+		<img src="/fail4.jpg" alt="" id="fail-image4" hidden>
+		<span id="fail-span4" hidden>На сайте виден элемент, который указывает на то, что сайт-подделка был создан с помощью WordPress. Обычно крупные компании делают сайты с нуля, или хотя бы не оставляют такие странные элементы на готовом сайте.</span>
+	</div>
+	<script src="/quiz.js"></script>
+</body>
+</html>
